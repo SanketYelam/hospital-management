@@ -1,5 +1,6 @@
 package org.dnyanyog.dto;
 
-public class AddUserRequest extends UserData {
-	
-}
+import org.springframework.stereotype.Component;
+
+@Component
+public class AddUserRequest extends UserData {}

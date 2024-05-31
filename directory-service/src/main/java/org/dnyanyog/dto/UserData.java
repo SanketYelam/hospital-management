@@ -1,63 +1,99 @@
 package org.dnyanyog.dto;
 
-import jakarta.validation.constraints.NotBlank;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+
+
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Component
 public class UserData {
-	
+
 	private String userId;
-	
-	@NotBlank
-	@Size(min=2,max=15)
+
+	@NotNull
+	@Size(min = 2, max = 15)
 	private String userName;
-	
-	@NotBlank
-	private String Email;
-	
-	@NotBlank
+
+	@NotNull
+	@JsonIgnore
+	@Email(message = "Email should be valid")
+	private String email;
+
+	@NotNull
+	@Pattern(regexp = "^\\d{10}$", message = "Mobile number should be valid")
 	private String mobileNumber;
-	
-	@NotBlank
-	private String Role;
-	
-	@NotBlank
-	@Size(min=8,max=14)
+
+	@NotNull
+	private String role;
+
+	@NotNull
+	@Size(min = 8, max = 14)
 	private String password;
 
-  public String getUserName() {
-  return userName;}
+	@NotNull
+	private String status;
 
-  public void setUserName(String userName) {
-  this.userName = userName;}
+	public String getUserName() {
+		return userName;
+	}
 
-  public String getEmail() {
-  return Email;}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-  public void setEmail(String email) {
-  Email = email;}
+	public String getEmail() {
+		return email;
+	}
 
-  public String getMobileNumber() {
-  return mobileNumber;}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-  public void setMobileNumber(String mobileNumber) {
-  this.mobileNumber = mobileNumber;}
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
 
-  public String getRole() {
-  return Role;}
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
 
-  public void setRole(String role) {
-  Role = role;}
+	public String getRole() {
+		return role;
+	}
 
-  public String getPassword() {
-  return password;}
+	public void setRole(String role) {
+		this.role = role;
+	}
 
-  public void setPassword(String password) {
-  this.password = password;}
+	public String getPassword() {
+		return password;
+	}
 
-public String getUserId(){return userId;}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-public void setUserId(String userId){this.userId = userId;}
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 	
 }
