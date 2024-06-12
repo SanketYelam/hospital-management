@@ -2,8 +2,6 @@ package org.dnyanyog.utility;
 
 import java.security.SecureRandom;
 
-import org.springframework.stereotype.Component;
-@Component
 public class CustomIdGenerator {
 
   private static final String CHARACTERS =
@@ -11,7 +9,7 @@ public class CustomIdGenerator {
   private static final SecureRandom RANDOM = new SecureRandom();
 
   public static String generatePatientId() {
-    return "PAT" + generateRandomAlphaNumeric(8);
+    return "USR" + generateRandomAlphaNumeric(8);
   }
 
   private static String generateRandomAlphaNumeric(int length) {

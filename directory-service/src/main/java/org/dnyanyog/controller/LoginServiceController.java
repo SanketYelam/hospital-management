@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import jakarta.validation.Valid;
-
 @RestController
-public class LoginController {
+public class LoginServiceController {
 
   @Autowired LoginServiceImpl loginService;
 
@@ -19,7 +17,7 @@ public class LoginController {
       path = "/api/v1/directory/validate",
       consumes = {"application/json", "application/xml"},
       produces = {"application/json", "application/xml"})
-  public LoginResponse validate(@Valid @RequestBody LoginRequest loginRequest) {
+  public LoginResponse validate(@RequestBody LoginRequest loginRequest) {
     return loginService.validateUser(loginRequest);
   }
 }

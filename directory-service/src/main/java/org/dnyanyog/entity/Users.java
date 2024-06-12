@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import org.dnyanyog.utility.UserIdGenerator;
+import org.dnyanyog.utility.CustomIdGenerator;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -108,7 +108,7 @@ public class Users {
   @PrePersist
   private void generateUserId() {
     if (this.userId == null) {
-      this.userId = UserIdGenerator.generateUserId();
+      this.userId = CustomIdGenerator.generatePatientId();
     }
   }
 }
